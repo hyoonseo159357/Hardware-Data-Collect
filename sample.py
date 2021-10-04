@@ -11,18 +11,6 @@ import model_info
 import os
 epoch_start = 0
 epoch_end = 0
-
-# parser = argparse.ArgumentParser()
-# parser.add_argument('--dataset', default=224, type=int)
-# parser.add_argument('--model', default='VGG19', type=str)
-# parser.add_argument('--batch_size', default=128, type=int)
-# parser.add_argument('--prof_point', default=1.5, type=float)
-# parser.add_argument('--prof_len', default=1, type=int)
-# parser.add_argument('--prof_or_latency', default='profiling', type=str)
-# parser.add_argument('--optimizer', default='SGD', type=str)
-# parser.add_argument('--instance_type', default='EC2', type=str)
-# args = parser.parse_args()
-# Dataset Info
 datasetsize=256
 dataset = dataset_info.select_dataset(datasetsize)
 model_name = 'ResNet34'
