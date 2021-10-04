@@ -23,7 +23,8 @@ epoch_end = 0
 # parser.add_argument('--instance_type', default='EC2', type=str)
 # args = parser.parse_args()
 # Dataset Info
-dataset = dataset_info.select_dataset(128)
+datasetsize=256
+dataset = dataset_info.select_dataset(datasetsize)
 model_name = 'ResNet34'
 num_classes = dataset['num_classes']
 img_rows = dataset['img_rows']
@@ -32,7 +33,7 @@ img_channels = dataset['img_channels']
 num_data = dataset['num_data']
 num_test = dataset['num_test']
 
-batch_size = 512 #batch size
+batch_size = 128 #batch size
 prof_point = 1.5 #prof_point
 batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
@@ -108,13 +109,12 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         filename= './Data.csv'
         Log_Data = pd.read_csv(filename)
         Log_Data["timestamp"]=Log_Data["timestamp"][:].str[:19]   # 초위에 소수점3자리 잘라냄
-        #start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == '2021/10/01 07:25:39'].index[0]) # start 지점이랑 같은 인덱스 찾기
-        #end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == '2021/10/01 07:29:39'].index[0]) # end 지점이랑 가틍 인덱스 찾기
-        start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_start].index[0]) # strart 지점이랑 같은 인덱스 찾기
-        end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_end].index[0]) # end 지점이랑 가틍 인덱스 찾기
+        start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == '2021/10/01 07:27:39'].index[0]) # start 지점이랑 같은 인덱스 찾기
+        end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == '2021/10/01 07:29:39'].index[0]) # end 지점이랑 가틍 인덱스 찾기
+        #start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_start].index[0]) # strart 지점이랑 같은 인덱스 찾기
+        #end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_end].index[0]) # end 지점이랑 가틍 인덱스 찾기
         Log_Data = Log_Data[start_index:end_index+1]
-        epoch_ver_filename= './epoch'+str(epoch+1)+'.csv'
-        #Log_Data[Log_Data["timestamp"][:] == '2021/10/01 07:27:35']
+        epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_epoch'+str(epoch+1)+'.csv'
         Log_Data.to_csv(epoch_ver_filename, index=False, encoding='cp949')
         #-----------------------------------------------------------------------------------------       
     def on_train_batch_begin(self, batch, logs=None):
