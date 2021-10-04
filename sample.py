@@ -21,7 +21,7 @@ img_channels = dataset['img_channels']
 num_data = dataset['num_data']
 num_test = dataset['num_test']
 
-batch_size = 128 #batch size
+batch_size = 64 #batch size
 prof_point = 1.5 #prof_point
 batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
