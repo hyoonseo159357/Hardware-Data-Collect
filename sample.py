@@ -9,11 +9,13 @@ import numpy as np
 import dataset_info
 import model_info
 import os
+model_name = 'ResNet34'
+datasetsize=256
+batch_size = 64 #batch size
+
 epoch_start = 0
 epoch_end = 0
-datasetsize=256
 dataset = dataset_info.select_dataset(datasetsize)
-model_name = 'ResNet34'
 num_classes = dataset['num_classes']
 img_rows = dataset['img_rows']
 img_cols = dataset['img_cols']
@@ -21,7 +23,6 @@ img_channels = dataset['img_channels']
 num_data = dataset['num_data']
 num_test = dataset['num_test']
 
-batch_size = 64 #batch size
 prof_point = 1.5 #prof_point
 batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
