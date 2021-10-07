@@ -9,7 +9,7 @@ import numpy as np
 import dataset_info
 import model_info
 import os
-model_name = 'ResNet34'
+model_name = 'MNIST_CNN'
 datasetsize=256
 batch_size = 64 #batch size
 
