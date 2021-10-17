@@ -5,6 +5,7 @@
 파이썬 파일안에서 에포크 한바퀴 돌때마다 nvidia-smi -q 값들을 모아서 데이터로 저장
 
 <저장한 데이터는 다음과같이 로컬에서 저장가능>
-
+(맥)
 scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem [ubuntu@](public ip 주소):/home/ubuntu/flee/Test/(파일명 epoch1.csv) .
-scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem [ubuntu@](public ip 주소):/home/ubuntu/flee/Test/(파일명 epoch2.csv) .
+(윈도우)
+scp -i C:/Users/Owner/Desktop/ys2.pem -r ubuntu@54.226.138.113:/home/ubuntu/Hardware-Data/ .
