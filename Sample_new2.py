@@ -9,7 +9,7 @@ import numpy as np
 import dataset_info
 import model_info
 import os
-model_name = 'InceptionResNetV2'
+model_name = 'MobileNetV2'
 datasetsize=128
 batch_size = 256 #batch size
 
