@@ -9,7 +9,7 @@ import numpy as np
 import dataset_info
 import model_info
 import os
-model_name = 'ResNet18'
+model_name = 'ResNet50'
 datasetsize=128
 batch_size = 256 #batch size
 
