@@ -93,16 +93,17 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         #print(datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S.%f')[:-3])
         epoch_end=datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S')
         print(epoch_end)
-        time.sleep(5)
+        time.sleep(15)
         #------- 여기서부터 nvidia-smi 데이터 epoch 별로 잘라내는 부분~ ----------------------------------------------------------------------
         filename= './Data.csv'
         Log_Data = pd.read_csv(filename)
-        time.sleep(7)
+        time.sleep(10)
         Log_Data["timestamp"]=Log_Data["timestamp"][:].str[:19]   # 초위에 소수점3자리 잘라냄
-        time.sleep(7)
+        time.sleep(10)
         start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_start].index[0]) # strart 지점이랑 같은 인덱스 찾기
+        time.sleep(5)
         end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_end].index[0]) # end 지점이랑 가틍 인덱스 찾기
-        time.sleep(2)
+        time.sleep(5)
         Log_Data = Log_Data[start_index:end_index+1]
         epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_epoch'+str(epoch+1)+'.csv'
         Log_Data.to_csv(epoch_ver_filename, index=False, encoding='cp949')
