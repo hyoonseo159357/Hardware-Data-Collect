@@ -23,7 +23,7 @@ img_channels = dataset['img_channels']
 num_data = dataset['num_data']
 num_test = dataset['num_test']
 
-prof_point = 100 #prof_point
+prof_point = 40 #prof_point
 batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
 prof_start = math.floor(batch_num * prof_point)
