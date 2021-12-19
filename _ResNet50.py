@@ -82,7 +82,7 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         self.epoch_times = []
         self.epoch_time_start = time.time()
         #print(datetime.fromtimestamp(self.epoch_time_start))
-        epoch_start=datetime.fromtimestamp(self.epoch_time_start).strftime('%Y.%m.%d %H:%M:%S')
+        epoch_start=datetime.fromtimestamp(self.epoch_time_start).strftime('%Y/%m/%d %H:%M:%S')
         print(epoch_start)
     def on_epoch_end(self, epoch, logs=None):
         global epoch_end
@@ -91,7 +91,7 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         self.all_times.append(self.epoch_times)
         #print(datetime.fromtimestamp(self.epoch_time_end))
         #print(datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S.%f')[:-3])
-        epoch_end=datetime.fromtimestamp(self.epoch_time_end).strftime('%Y.%m.%d %H:%M:%S')
+        epoch_end=datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S')
         print(epoch_end)
         time.sleep(8)
         #------- 여기서부터 nvidia-smi 데이터 epoch 별로 잘라내는 부분~ ----------------------------------------------------------------------
