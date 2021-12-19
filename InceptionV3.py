@@ -11,7 +11,7 @@ import model_info
 import os
 model_name = 'InceptionV3'
 datasetsize=128
-batch_size = 64 #batch size
+batch_size =128 #batch size
 
 epoch_start = 0
 epoch_end = 0
