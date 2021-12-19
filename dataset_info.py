@@ -21,8 +21,8 @@ dataset_64 = {
     'img_rows': 64,
     'img_cols': 64,
     'img_channels': 3,
-    'num_data': 5000,
-    'num_test': 1000
+    'num_data': 10000,
+    'num_test': 2000
 } 
 
 dataset_128 = {
