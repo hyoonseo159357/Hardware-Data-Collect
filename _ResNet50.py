@@ -11,7 +11,7 @@ import model_info
 import os
 model_name = 'ResNet50'
 datasetsize=128
-batch_size =128 #batch size
+batch_size =32 #batch size
 
 epoch_start = 0
 epoch_end = 0
@@ -22,8 +22,9 @@ img_cols = dataset['img_cols']
 img_channels = dataset['img_channels']
 num_data = dataset['num_data']
 num_test = dataset['num_test']
+input_data = num_data+num_test
 
-prof_point = 40 #prof_point
+prof_point = 3 #prof_point
 batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
 prof_start = math.floor(batch_num * prof_point)
@@ -54,7 +55,6 @@ else:
     
 x_train = x_train.astype('float32')
 x_test = x_test.astype('float32')
-
 y_train = tf.keras.utils.to_categorical(y_train, num_classes)
 y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
@@ -66,15 +66,16 @@ model.compile(loss=tf.keras.losses.categorical_crossentropy,
               metrics=['accuracy'])
 
 
+epoch_dict = {}
 class BatchTimeCallback(tf.keras.callbacks.Callback):
     def on_train_begin(self, logs=None):
         self.all_times = []
 
-    def on_train_end(self, logs=None):
-        time_filename = "sample2.pickle"
-        time_file = open(time_filename, 'ab')
-        pickle.dump(self.all_times, time_file)
-        time_file.close()
+#     def on_train_end(self, logs=None):
+#         time_filename = "sample2.pickle"
+#         time_file = open(time_filename, 'ab')
+#         pickle.dump(self.all_times, time_file)
+#         time_file.close()
 
     def on_epoch_begin(self, epoch, logs=None):
         print(epoch)
@@ -84,6 +85,7 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         #print(datetime.fromtimestamp(self.epoch_time_start))
         epoch_start=datetime.fromtimestamp(self.epoch_time_start).strftime('%Y/%m/%d %H:%M:%S')
         print(epoch_start)
+        epoch_dict[epoch] = [epoch_start]
     def on_epoch_end(self, epoch, logs=None):
         global epoch_end
         self.epoch_time_end = time.time()
@@ -93,16 +95,18 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         #print(datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S.%f')[:-3])
         epoch_end=datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S')
         print(epoch_end)
-        #------- 여기서부터 nvidia-smi 데이터 epoch 별로 잘라내는 부분~ ----------------------------------------------------------------------
-        filename= './Data.csv'
-        Log_Data = pd.read_csv(filename)
         
-        #Log_Data["timestamp"]=Log_Data["timestamp"][:].str[:19]   # 초위에 소수점3자리 잘라냄
-        start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_start].index[0]) # strart 지점이랑 같은 인덱스 찾기
-        end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_end].index[0]) # end 지점이랑 가틍 인덱스 찾기
-        Log_Data = Log_Data[start_index:end_index+1]
-        epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_epoch'+str(epoch+1)+'.csv'
-        Log_Data.to_csv(epoch_ver_filename, index=False, encoding='cp949')
+        epoch_dict[epoch].append(epoch_end)
+        #------- 여기서부터 nvidia-smi 데이터 epoch 별로 잘라내는 부분~ ----------------------------------------------------------------------
+#         filename= './Data.csv'
+#         Log_Data = pd.read_csv(filename)
+        
+#         #Log_Data["timestamp"]=Log_Data["timestamp"][:].str[:19]   # 초위에 소수점3자리 잘라냄
+#         start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_start].index[0]) # strart 지점이랑 같은 인덱스 찾기
+#         end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_end].index[0]) # end 지점이랑 가틍 인덱스 찾기
+#         Log_Data = Log_Data[start_index:end_index+1]
+#         epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_epoch'+str(epoch+1)+'.csv'
+#         Log_Data.to_csv(epoch_ver_filename, index=False, encoding='cp949')
         #-----------------------------------------------------------------------------------------       
     def on_train_batch_begin(self, batch, logs=None):
         self.batch_time_start = time.time()
@@ -116,3 +120,15 @@ model.fit(x_train, y_train,
     verbose=1,
     validation_data=(x_test, y_test),
     callbacks = [latency_callback])
+
+import pickle
+epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epoch+1)+"_"+str(num_data)+"_"+str(num_test)+'.csv'           
+
+# save data
+with open(epoch_ver_filename,'wb') as fw:
+    pickle.dump(epoch_dict, fw)
+# load data
+with open(epoch_ver_filename, 'rb') as fr:
+    user_loaded = pickle.load(fr)
+# show data
+print(user_loaded)
