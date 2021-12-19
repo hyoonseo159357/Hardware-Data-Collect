@@ -11,7 +11,7 @@ import model_info
 import os
 model_name = 'ResNet50'
 datasetsize=128
-batch_size =32 #batch size
+batch_size =128 #batch size
 
 epoch_start = 0
 epoch_end = 0
@@ -24,7 +24,7 @@ num_data = dataset['num_data']
 num_test = dataset['num_test']
 input_data = num_data+num_test
 
-prof_point = 3 #prof_point
+prof_point = 30 #prof_point
 batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
 prof_start = math.floor(batch_num * prof_point)
