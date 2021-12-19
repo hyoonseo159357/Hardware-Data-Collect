@@ -8,6 +8,7 @@
 
 (맥)
 scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem [ubuntu@](public ip 주소):/home/ubuntu/flee/Test/(파일명 epoch1.csv) .
+
 폴더째 정송할때 : 
 scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem -r ubuntu@[public ip 주소]:/home/ubuntu/Hardware-Data/ .
 
