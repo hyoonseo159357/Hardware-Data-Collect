@@ -31,7 +31,6 @@ prof_start = math.floor(batch_num * prof_point)
 prof_len = 1 #prof_len
 prof_range = '{}, {}'.format(prof_start, prof_start + prof_len)
 optimizer = 'SGD'
-total_epoch = 0
 
 ###################### Build Fake Dataset ######################
 x_train_shape = (num_data, img_rows, img_cols, img_channels)
@@ -96,7 +95,6 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         #print(datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S.%f')[:-3])
         epoch_end=datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S')
         print(epoch_end)
-        total_epoch = epoch
         
         epoch_dict[epoch].append(epoch_end)
         #------- 여기서부터 nvidia-smi 데이터 epoch 별로 잘라내는 부분~ ----------------------------------------------------------------------
@@ -124,7 +122,7 @@ model.fit(x_train, y_train,
     callbacks = [latency_callback])
 
 import pickle
-epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epoch+1)+"_"+str(num_data)+"_"+str(num_test)+'.csv'           
+epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epochs)+"_"+str(num_data)+"_"+str(num_test)+'.csv'           
 
 # save data
 with open(epoch_ver_filename,'wb') as fw:
