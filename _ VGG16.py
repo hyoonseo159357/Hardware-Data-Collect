@@ -9,7 +9,7 @@ import numpy as np
 import dataset_info
 import model_info
 import os
-model_name = 'ResNet50'
+model_name = 'VGG16'
 datasetsize=128
 batch_size =128 #batch size
 
