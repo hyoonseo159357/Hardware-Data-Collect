@@ -122,7 +122,7 @@ model.fit(x_train, y_train,
     callbacks = [latency_callback])
 
 import pickle
-epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epochs)+"_"+str(num_data)+"_"+str(num_test)+'.csv'           
+epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epochs)+"_totaldata"+str(num_data)+'.csv'           
 
 # save data
 with open(epoch_ver_filename,'wb') as fw:
