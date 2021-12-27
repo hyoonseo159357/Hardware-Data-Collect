@@ -25,11 +25,7 @@ num_test = dataset['num_test']
 input_data = num_data+num_test
 
 prof_point = 10 #prof_point
-batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
-prof_start = math.floor(batch_num * prof_point)
-prof_len = 1 #prof_len
-prof_range = '{}, {}'.format(prof_start, prof_start + prof_len)
 optimizer = 'SGD'
 
 ###################### Build Fake Dataset ######################
@@ -68,50 +64,22 @@ model.compile(loss=tf.keras.losses.categorical_crossentropy,
 
 epoch_dict = {}
 class BatchTimeCallback(tf.keras.callbacks.Callback):
-    def on_train_begin(self, logs=None):
-        self.all_times = []
-
-#     def on_train_end(self, logs=None):
-#         time_filename = "sample2.pickle"
-#         time_file = open(time_filename, 'ab')
-#         pickle.dump(self.all_times, time_file)
-#         time_file.close()
 
     def on_epoch_begin(self, epoch, logs=None):
         print(epoch)
         global epoch_start
-        self.epoch_times = []
         self.epoch_time_start = time.time()
-        #print(datetime.fromtimestamp(self.epoch_time_start))
         epoch_start=datetime.fromtimestamp(self.epoch_time_start).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
-        print(epoch_start)
+        print('epoch_start : '+str(epoch_start))
         epoch_dict[epoch] = [epoch_start]
     def on_epoch_end(self, epoch, logs=None):
         global epoch_end
         self.epoch_time_end = time.time()
-        #self.all_times.append(self.epoch_time_end - self.epoch_time_start)
-        self.all_times.append(self.epoch_times)
-        #print(datetime.fromtimestamp(self.epoch_time_end))
-        #print(datetime.fromtimestamp(self.epoch_time_end).strftime('%Y/%m/%d %H:%M:%S.%f')[:-3])
         epoch_end=datetime.fromtimestamp(self.epoch_time_end).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
-        print(epoch_end)
-        
+        print('epoch_end : '+str(epoch_end))
         epoch_dict[epoch].append(epoch_end)
-        #------- 여기서부터 nvidia-smi 데이터 epoch 별로 잘라내는 부분~ ----------------------------------------------------------------------
-#         filename= './Data.csv'
-#         Log_Data = pd.read_csv(filename)
-        
-#         #Log_Data["timestamp"]=Log_Data["timestamp"][:].str[:19]   # 초위에 소수점3자리 잘라냄
-#         start_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_start].index[0]) # strart 지점이랑 같은 인덱스 찾기
-#         end_index = (Log_Data[Log_Data["timestamp"][:].str[:19] == epoch_end].index[0]) # end 지점이랑 가틍 인덱스 찾기
-#         Log_Data = Log_Data[start_index:end_index+1]
-#         epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_epoch'+str(epoch+1)+'.csv'
-#         Log_Data.to_csv(epoch_ver_filename, index=False, encoding='cp949')
-        #-----------------------------------------------------------------------------------------       
-    def on_train_batch_begin(self, batch, logs=None):
-        self.batch_time_start = time.time()
-    def on_train_batch_end(self, batch, logs=None):
-        self.epoch_times.append(time.time() - self.batch_time_start)
+
+
 latency_callback = BatchTimeCallback()
 
 model.fit(x_train, y_train,
