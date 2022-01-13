@@ -9,7 +9,7 @@ import numpy as np
 import dataset_info
 import model_info
 import os
-model_name = 'InceptionV3'
+model_name = 'LeNet5'
 datasetsize=128
 batch_size =128 #batch size
 
