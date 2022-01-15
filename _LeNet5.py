@@ -9,6 +9,8 @@ import numpy as np
 import dataset_info
 import model_info
 import os
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 model_name = 'LeNet5'
 datasetsize=128
 batch_size =128 #batch size
