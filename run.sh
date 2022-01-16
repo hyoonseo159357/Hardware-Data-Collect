@@ -8,3 +8,13 @@ echo '_InceptionV3'
 python3 _InceptionV3.py
 echo '_VGG16'
 python3 _VGG16.py
+echo '_InceptionResNetV2'
+python3 _InceptionResNetV2.py
+echo '_LeNet5'
+python3 _LeNet5.py
+echo '_ResNetSmall'
+python3 _ResNetSmall.py
+echo '_MobileNetV2'
+python3 _MobileNetV2.py
+echo '_AlexNet'
+python3 _AlexNet.py
