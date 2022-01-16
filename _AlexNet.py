@@ -10,8 +10,8 @@ import dataset_info
 import model_info
 import os
 model_name = 'AlexNet'
-datasetsize=32
-batch_size =128 #batch size
+datasetsize=128
+batch_size =32 #batch size
 
 epoch_start = 0
 epoch_end = 0
