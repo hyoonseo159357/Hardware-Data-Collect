@@ -13,7 +13,7 @@ os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
 model_name = 'LeNet5'
 datasetsize=128
-batch_size =128 #batch size
+batch_size =32 #batch size
 
 epoch_start = 0
 epoch_end = 0
