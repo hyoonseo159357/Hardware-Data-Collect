@@ -24,7 +24,6 @@ parser.add_argument('--batch_size', default=128, type=int)
 parser.add_argument('--optimizer', default='SGD', type=str)
 parser.add_argument('--use_gpu_num', default=1, type=int)
 parser.add_argument('--prof_point', default=1.5, type=float)
-parser.add_argument('--prof_len', default=1, type=int)
 parser.add_argument('--instance_type', default='EC2', type=str)
 args = parser.parse_args()
 
