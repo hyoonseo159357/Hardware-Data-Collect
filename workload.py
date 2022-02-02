@@ -24,7 +24,6 @@ parser.add_argument('--model', default='VGG19', type=str)
 parser.add_argument('--batch_size', default=128, type=int)
 parser.add_argument('--prof_point', default=1.5, type=float)
 parser.add_argument('--prof_len', default=1, type=int)
-parser.add_argument('--prof_or_latency', default='profiling', type=str)
 parser.add_argument('--optimizer', default='SGD', type=str)
 parser.add_argument('--instance_type', default='EC2', type=str)
 args = parser.parse_args()
@@ -118,22 +117,9 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         self.epoch_times.append(time.time() - self.batch_time_start)
 
 latency_callback = BatchTimeCallback()
-
-if args.prof_or_latency == 'profiling':
-    # Start training with profiling
-    model.fit(x_train, y_train,
-            batch_size=batch_size,
-            epochs=epochs,
-            verbose=1,
-            validation_data=(x_test, y_test),
-            callbacks = [tboard_callback])
-elif args.prof_or_latency == 'latency':
-    # Start training with check latency
-    model.fit(x_train, y_train,
-            batch_size=batch_size,
-            epochs=epochs,
-            verbose=1,
-            validation_data=(x_test, y_test),
-            callbacks = [latency_callback])
-else:
-    print('error')
+model.fit(x_train, y_train,
+        batch_size=batch_size,
+        epochs=epochs,
+        verbose=1,
+        validation_data=(x_test, y_test),
+        callbacks = [latency_callback])
