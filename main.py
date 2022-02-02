@@ -39,10 +39,8 @@ img_channels = dataset['img_channels']
 num_data = dataset['num_data']
 num_test = dataset['num_test']
 input_data = num_data+num_test
-
-prof_point = 10 #prof_point
 epochs = math.ceil(prof_point)
-optimizer = 'SGD'
+
 
 ###################### Build Fake Dataset ######################
 x_train_shape = (num_data, img_rows, img_cols, img_channels)
