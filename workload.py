@@ -58,7 +58,6 @@ y_train = np.random.randint(num_classes, size=y_train_shape)
 x_test = np.random.rand(*x_test_shape)
 y_test = np.random.randint(num_classes, size=y_test_shape)
 ###############################################################
-
 if tf.keras.backend.image_data_format() == 'channels_first':
     x_train = x_train.reshape(x_train.shape[0], img_channels, img_rows, img_cols)
     x_test = x_test.reshape(x_test.shape[0], img_channels, img_rows, img_cols)
@@ -70,7 +69,6 @@ else:
     
 x_train = x_train.astype('float32')
 x_test = x_test.astype('float32')
-
 y_train = tf.keras.utils.to_categorical(y_train, num_classes)
 y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
@@ -81,41 +79,33 @@ model.compile(loss=tf.keras.losses.categorical_crossentropy,
               optimizer=optimizer,
               metrics=['accuracy'])
 
-job_name = "{}-{}dataset-{}".format(args.instance_type, args.dataset, model_name)
-logs = "/home/ubuntu/Deep-Cloud/logs/" + "{}-{}-{}-{}".format(
-    job_name, optimizer, batch_size, datetime.now().strftime("%Y%m%d-%H%M%S.%f"))
-tboard_callback = tf.keras.callbacks.TensorBoard(log_dir = logs,
-                                                 histogram_freq = 1,
-                                                 profile_batch = prof_range)
 
-# Setting for latency check callback
+epoch_dict = {}
 class BatchTimeCallback(tf.keras.callbacks.Callback):
-    def on_train_begin(self, logs=None):
-        self.all_times = []
-
-    def on_train_end(self, logs=None):
-        time_filename = "/home/ubuntu/Deep-Cloud/tensorstats/times-" + "{}-{}-{}-{}.pickle".format(job_name, optimizer, batch_size, datetime.now().strftime("%Y%m%d-%H%M%S.%f"))
-        time_file = open(time_filename, 'ab')
-        pickle.dump(self.all_times, time_file)
-        time_file.close()
 
     def on_epoch_begin(self, epoch, logs=None):
-        self.epoch_times = []
+        print(epoch)
+        global epoch_start
         self.epoch_time_start = time.time()
-
+        epoch_start=datetime.fromtimestamp(self.epoch_time_start).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        print('epoch_start : '+str(epoch_start))
+        epoch_dict[epoch] = [epoch_start]
     def on_epoch_end(self, epoch, logs=None):
+        global epoch_end
         self.epoch_time_end = time.time()
-        self.all_times.append(self.epoch_time_end - self.epoch_time_start)
-        self.all_times.append(self.epoch_times)
+        epoch_end=datetime.fromtimestamp(self.epoch_time_end).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        print('epoch_end : '+str(epoch_end))
+        epoch_dict[epoch].append(epoch_end)
 
 
+latency_callback = BatchTimeCallback()
 
 model.fit(x_train, y_train,
-        batch_size=batch_size,
-        epochs=epochs,
-        verbose=1,
-        validation_data=(x_test, y_test),
-        callbacks = BatchTimeCallback())
+    batch_size=batch_size,
+    epochs=epochs,
+    verbose=1,
+    validation_data=(x_test, y_test),
+    callbacks = [latency_callback])
 
 import pickle
 epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epochs)+"_totaldata"+str(num_data)+'.csv'           
