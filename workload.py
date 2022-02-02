@@ -116,3 +116,15 @@ model.fit(x_train, y_train,
         verbose=1,
         validation_data=(x_test, y_test),
         callbacks = BatchTimeCallback())
+
+import pickle
+epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epochs)+"_totaldata"+str(num_data)+'.csv'           
+
+# save data
+with open(epoch_ver_filename,'wb') as fw:
+    pickle.dump(epoch_dict, fw)
+# load data
+with open(epoch_ver_filename, 'rb') as fr:
+    user_loaded = pickle.load(fr)
+# show data
+print(user_loaded)
