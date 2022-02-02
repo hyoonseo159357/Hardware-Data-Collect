@@ -98,14 +98,12 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         epoch_dict[epoch].append(epoch_end)
 
 
-latency_callback = BatchTimeCallback()
-
 model.fit(x_train, y_train,
     batch_size=batch_size,
     epochs=epochs,
     verbose=1,
     validation_data=(x_test, y_test),
-    callbacks = [latency_callback])
+    callbacks = BatchTimeCallback())
 
 import pickle
 epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(datasetsize)+'_total_epoch'+str(epochs)+"_totaldata"+str(num_data)+'.csv'           
