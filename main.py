@@ -9,9 +9,25 @@ import numpy as np
 import dataset_info
 import model_info
 import os
-model_name = 'AlexNet'
-datasetsize=128
-batch_size =32 #batch size
+
+
+gpus = tf.config.experimental.list_physical_devices('GPU')
+num_gpus = len(gpus)
+for gpu in gpus:
+    print('Name:', gpu.name, ' Type:', gpu.device_type)
+    
+    
+parser = argparse.ArgumentParser()
+parser.add_argument('--model', default='VGG19', type=str)
+parser.add_argument('--dataset', default=224, type=int)
+parser.add_argument('--batch_size', default=128, type=int)
+parser.add_argument('--optimizer', default='SGD', type=str)
+parser.add_argument('--use_gpu_num', default=1, type=int)
+parser.add_argument('--prof_point', default=1.5, type=float)
+parser.add_argument('--prof_len', default=1, type=int)
+parser.add_argument('--instance_type', default='EC2', type=str)
+args = parser.parse_args()
+
 
 epoch_start = 0
 epoch_end = 0
