@@ -1,8 +1,6 @@
 #!/bin/bash
 # Get arguments
 INSTANCE_TYPE=$1
-MODEL_NAME=$2
-BATCH_SIZE=$4
 
 IMAGE_ID="ami-0050625d58fa27b6d"
 AWS_KEY="ys-oregon2"
