@@ -74,7 +74,6 @@ y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
 # Select model from model info module
 model = model_info.select_model(model_name, input_shape, num_classes)
-
 model.compile(loss=tf.keras.losses.categorical_crossentropy,
               optimizer=optimizer,
               metrics=['accuracy'])
