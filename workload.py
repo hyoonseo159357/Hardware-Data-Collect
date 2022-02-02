@@ -3,10 +3,8 @@ import math
 import time
 import pickle
 import argparse
-
 import tensorflow as tf
 import numpy as np
-
 import dataset_info
 import model_info
 
@@ -110,16 +108,11 @@ class BatchTimeCallback(tf.keras.callbacks.Callback):
         self.all_times.append(self.epoch_time_end - self.epoch_time_start)
         self.all_times.append(self.epoch_times)
 
-    def on_train_batch_begin(self, batch, logs=None):
-        self.batch_time_start = time.time()
 
-    def on_train_batch_end(self, batch, logs=None):
-        self.epoch_times.append(time.time() - self.batch_time_start)
 
-latency_callback = BatchTimeCallback()
 model.fit(x_train, y_train,
         batch_size=batch_size,
         epochs=epochs,
         verbose=1,
         validation_data=(x_test, y_test),
-        callbacks = [latency_callback])
+        callbacks = BatchTimeCallback())
