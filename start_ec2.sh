@@ -32,17 +32,6 @@ echo 'start experiment'
 EXP_CMD="cd /home/ubuntu/profet/data_generation/;sudo bash ./run_single_workload.sh $INSTANCE_TYPE $PROF_MODE"
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS $EXP_CMD
 
-# Run tensorboard & scraping profiling results
-sleep 10
-echo 'start tensorboard'
-TB_CMD="cd /home/ubuntu/profet/data_generation/;sudo bash ./get_tensorboard.sh $INSTANCE_TYPE"
-ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS $TB_CMD
-
-# Get profiling results
-sleep 10
-mkdir $INSTANCE_TYPE
-scp -i $AWS_KEY \
-ubuntu@$INSTANCE_DNS:~/profet/data_generation/tensorstats/* ./$INSTANCE_TYPE/
 
 # Terminate instance
 sleep 10
