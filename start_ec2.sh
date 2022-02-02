@@ -2,15 +2,12 @@
 # Get arguments
 INSTANCE_TYPE=$1
 MODEL_NAME=$2
-PIXEL_SIZE=$3
 BATCH_SIZE=$4
-USING_GPU_NUM=$5
-PROF_MODE=$6
 
-IMAGE_ID="ami-abcd1234"
-AWS_KEY="aws-key.pem"
-SUBNET_ID="subnet-abcd1234"
-SG_ID="sg-abcd1234"
+IMAGE_ID="ami-0050625d58fa27b6d"
+AWS_KEY="ys-oregon2"
+SUBNET_ID="subnet-90c369ca"
+SG_ID="sg-0a6002f635ead6bd0"
 
 # Launch instance & get informations
 echo 'launch instance'
