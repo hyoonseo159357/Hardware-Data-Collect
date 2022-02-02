@@ -29,7 +29,7 @@ ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo ba
 # Run Experiments
 sleep 10
 echo 'start experiment'
-EXP_CMD="cd /home/ubuntu/profet/data_generation/;sudo bash ./run_single_workload.sh $INSTANCE_TYPE $PROF_MODE"
+EXP_CMD="cd /home/ubuntu/profet/data_generation/;sudo bash ./run_all.sh $INSTANCE_TYPE $PROF_MODE"
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS $EXP_CMD
 
 
