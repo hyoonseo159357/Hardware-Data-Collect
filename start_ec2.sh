@@ -1,5 +1,3 @@
-
-   
 #!/bin/bash
 # Get arguments
 INSTANCE_TYPE=$1
