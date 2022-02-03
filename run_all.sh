@@ -1,5 +1,3 @@
-
-
 # 'LeNet5'
 python3.7 workload.py --model 'LeNet5' --dataset 32 --batch_size 16    
 # VGGSmall
