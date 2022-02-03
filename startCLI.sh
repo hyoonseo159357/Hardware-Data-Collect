@@ -26,7 +26,6 @@ ssh -o "StrictHostKeyChecking no" -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/
 
 # Run Experiments
 sleep 60
-AWS_KEY="ys.pem"
 echo 'start experiment'
 ssh -o "StrictHostKeyChecking no" -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo bash ./run_all.sh'
 
