@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@hyoonseo159357 
-hyoonseo159357
-/
-Hardware-Data2
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Hardware-Data2/run_all.sh
-@hyoonseo159357
-hyoonseo159357 Update run_all.sh
-Latest commit 9dd1ac2 1 minute ago
- History
- 1 contributor
-51 lines (46 sloc)  2.07 KB
-   
 tmux new -s dstattmux
 tmux sudo dstat --output ~/Hardware-Data/dstat-log.csv -cdnpmrt
 tmux detach
