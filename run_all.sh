@@ -4,6 +4,7 @@ tmux detach
 tmux new -s nvidiasmitmux
 nvidia-smi -lms 110 -f ./Data.csv --format=csv --query-gpu=timestamp,temperature.gpu,utilization.memory,utilization.gpu,power.draw,clocks.current.sm
 tmux detach
+tmux new -s maintmux
 
 
 # 'LeNet5'
@@ -43,4 +44,8 @@ python3.7 profile_workload.py --model 'EfficientNetB0' --dataset 32 --batch_size
 # MobileNetV2
 python3.7 profile_workload.py --model 'MobileNetV2' --dataset 32 --batch_size 16    
 # ResNet50
-python3.7 profile_workload.py --model 'ResNet50' --dataset 32--batch_size 16    
+python3.7 profile_workload.py --model 'ResNet50' --dataset 32--batch_size 16
+
+
+tmux detach
+
