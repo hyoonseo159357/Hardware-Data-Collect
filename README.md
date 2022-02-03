@@ -7,9 +7,8 @@ tensorflow 2.5.0
 
 
 직접하는법
-git clone https://github.com/hyoonseo159357/Hardware-Data2.git
 
-sudo bash ./settings.sh
-
-sudo bash ./run_all.sh
+- git clone https://github.com/hyoonseo159357/Hardware-Data2.git
+- sudo bash ./settings.sh
+- sudo bash ./run_all.sh
 
