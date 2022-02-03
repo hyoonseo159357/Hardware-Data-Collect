@@ -26,11 +26,13 @@ ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo ba
 
 # Run Experiments
 sleep 10
+AWS_KEY="ys.pem"
 echo 'start experiment'
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo bash ./run_all.sh'
 
 # Get profiling results
 sleep 10
+AWS_KEY="ys.pem"
 scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem -r ubuntu@$INSTANCE_DNS:/home/ubuntu/Hardware-Data2/ .
 
 # Terminate instance
