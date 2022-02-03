@@ -1,2 +1,2 @@
-pip3 install tensorflow==2.5.0
+pip3 install tensorflow==2.7.0
 sudo apt install dstat
