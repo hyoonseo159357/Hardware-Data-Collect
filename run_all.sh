@@ -1,3 +1,11 @@
+tmux new -s dstattmux
+tmux sudo dstat --output ~/Hardware-Data/dstat-log.csv -cdnpmrt
+tmux detach
+tmux new -s nvidiasmitmux
+nvidia-smi -lms 110 -f ./Data.csv --format=csv --query-gpu=timestamp,temperature.gpu,utilization.memory,utilization.gpu,power.draw,clocks.current.sm
+tmux detach
+
+
 # 'LeNet5'
 python3.7 profile_workload.py --model 'LeNet5' --dataset 32 --batch_size 16    
 # VGGSmall
