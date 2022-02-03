@@ -6,3 +6,7 @@ tensorflow 2.5.0
 - sh startCLI.sh g4dn.xlarge
 
 
+직접하는법
+git clone https://github.com/hyoonseo159357/Hardware-Data2.git
+sudo bash ./settings.sh
+sudo bash ./run_all.sh
