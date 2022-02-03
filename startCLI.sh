@@ -23,12 +23,12 @@ AWS_KEY="ys.pem"
 echo 'git clone and setting instance'
 ssh -o "StrictHostKeyChecking no" -i $AWS_KEY ubuntu@$INSTANCE_DNS 'git clone https://github.com/hyoonseo159357/Hardware-Data2.git'
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo bash ./settings.sh'
+ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo bash ./settings.sh'
 
 # Run Experiments
 sleep 10
 echo 'start experiment'
-EXP_CMD="cd /home/ubuntu/profet/data_generation/;sudo bash ./run_all.sh $INSTANCE_TYPE $PROF_MODE"
-ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS $EXP_CMD
+ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo bash ./run_all.sh'
 
 # Get profiling results
 sleep 10
