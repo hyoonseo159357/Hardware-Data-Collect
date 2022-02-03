@@ -1,5 +1,5 @@
 cuda11.4
-tensorflow 2.5.0
+tensorflow 2.7.0
 
 - 로컬에 깃 다운받고
 - 파일안에 pem 키넣고
