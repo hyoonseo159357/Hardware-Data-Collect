@@ -30,6 +30,9 @@ echo 'start experiment'
 EXP_CMD="cd /home/ubuntu/profet/data_generation/;sudo bash ./run_all.sh $INSTANCE_TYPE $PROF_MODE"
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS $EXP_CMD
 
+# Get profiling results
+sleep 10
+scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem -r ubuntu@$INSTANCE_DNS:/home/ubuntu/Hardware-Data2/ .
 
 # Terminate instance
 sleep 10
