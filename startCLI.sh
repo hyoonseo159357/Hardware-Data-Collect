@@ -2,10 +2,10 @@
 # Get arguments
 INSTANCE_TYPE=$1
 
-IMAGE_ID="ami-0050625d58fa27b6d"
-AWS_KEY="ys-oregon2"
-SUBNET_ID="subnet-90c369ca"
-SG_ID="sg-0a6002f635ead6bd0"
+IMAGE_ID="ami-0ea8263cbf553488e"
+AWS_KEY="ys"
+SUBNET_ID="subnet-4fb7a904"
+SG_ID="sg-34330e43"
 
 # Launch instance & get informations
 echo 'launch instance'
@@ -19,7 +19,7 @@ echo $INSTANCE_DNS
 
 # Instance setting
 sleep 60
-AWS_KEY="ys-oregon2.pem"
+AWS_KEY="ys.pem"
 echo 'git clone and setting instance'
 ssh -o "StrictHostKeyChecking no" -i $AWS_KEY ubuntu@$INSTANCE_DNS 'git clone https://github.com/hyoonseo159357/Hardware-Data2.git'
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo bash ./settings.sh'
