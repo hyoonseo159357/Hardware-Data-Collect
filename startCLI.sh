@@ -5,7 +5,7 @@ INSTANCE_TYPE=$1
 IMAGE_ID="ami-0ea8263cbf553488e"
 AWS_KEY="ys"
 SUBNET_ID="subnet-4fb7a904"
-SG_ID="sg-34330e43"
+SG_ID="sg-0f2dfaeaef1c8f808"
 
 # Launch instance & get informations
 echo 'launch instance'
