@@ -30,13 +30,13 @@ AWS_KEY="ys.pem"
 echo 'start experiment'
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/;sudo bash ./run_all.sh'
 
-# Get profiling results
-sleep 10
-AWS_KEY="ys.pem"
-scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem -r ubuntu@$INSTANCE_DNS:/home/ubuntu/Hardware-Data2/ .
+# # Get results
+# sleep 10
+# AWS_KEY="ys.pem"
+# scp -i /Users/heoyunseo/desktop/aws_pem/ys.pem -r ubuntu@$INSTANCE_DNS:/home/ubuntu/Hardware-Data2/ .
 
-# Terminate instance
-sleep 10
-echo 'terminate instance'
-TERMINATE_INFO=$(aws ec2 terminate-instances --instance-ids $INSTANCE_ID)
-echo $TERMINATE_INFO
+# # Terminate instance
+# sleep 10
+# echo 'terminate instance'
+# TERMINATE_INFO=$(aws ec2 terminate-instances --instance-ids $INSTANCE_ID)
+# echo $TERMINATE_INFO
