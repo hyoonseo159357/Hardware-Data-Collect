@@ -22,13 +22,12 @@ sleep 60
 AWS_KEY="ys.pem"
 echo 'git clone and setting instance'
 ssh -o "StrictHostKeyChecking no" -i $AWS_KEY ubuntu@$INSTANCE_DNS 'git clone https://github.com/hyoonseo159357/Hardware-Data2.git'
-ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'sudo bash /home/ubuntu/Hardware-Data2/settings.sh'
+ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/&& sudo bash ./settings.sh'
 
 # Run Experiments
 sleep 60
 echo 'start experiment'
-ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'sudo bash /home/ubuntu/Hardware-Data2/run_all.sh'
-
+ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/&& sudo bash ./run_all.sh'
 # # Get results
 # sleep 10
 # AWS_KEY="ys.pem"
