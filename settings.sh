@@ -11,10 +11,3 @@ sudo apt update
 sudo apt install dstat
 
 chmod +x run_all.sh
-
-chmod +x run_dstat.sh
-chmod +x run_nvidia.sh
-chmod +x run_workload.sh
-echo("11111111")
-nohup ./run_dstat.sh >nohup.out & nohup ./run_nvidia.sh >nohup2.out & nohup ./run_workload.sh >nohup3.out & 
-echo("222222222")
