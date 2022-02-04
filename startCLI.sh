@@ -27,7 +27,11 @@ ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/&& sudo 
 # Run Experiments
 sleep 60
 echo 'start experiment'
-ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/&& sudo bash ./run_all.sh'
+#ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data2/&& sudo bash ./run_all.sh'
+ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 
+cd /home/ubuntu/Hardware-Data2
+sudo bash ./run_all.sh
+
 # # Get results
 # sleep 10
 # AWS_KEY="ys.pem"
