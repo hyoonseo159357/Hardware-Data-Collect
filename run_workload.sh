@@ -1,12 +1,12 @@
 python3.7 workload.py --model 'LeNet5' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'VGGSmall' --dataset 32 --batch_size 32    
-python3.7 workload.py --model 'VGG11' --dataset 32 --batch_size 32    
-python3.7 workload.py --model 'VGG13' --dataset 32 --batch_size 32    
-python3.7 workload.py --model 'VGG16' --dataset 32 --batch_size 32    
+#python3.7 workload.py --model 'VGG11' --dataset 32 --batch_size 32    
+#python3.7 workload.py --model 'VGG13' --dataset 32 --batch_size 32    
+#python3.7 workload.py --model 'VGG16' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'VGG19' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'ResNetSmall' --dataset 32 --batch_size 32    
-python3.7 workload.py --model 'ResNet18' --dataset 32 --batch_size 32    
-python3.7 workload.py --model 'ResNet34' --dataset 32 --batch_size 32    
+#python3.7 workload.py --model 'ResNet18' --dataset 32 --batch_size 32    
+#python3.7 workload.py --model 'ResNet34' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'MNIST_CNN' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'CIFAR10_CNN' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'FLOWER_CNN' --dataset 32 --batch_size 32    
@@ -20,13 +20,13 @@ python3.7 workload.py --model 'ResNet50' --dataset 32 --batch_size 32
 
 python3.7 workload.py --model 'LeNet5' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'VGGSmall' --dataset 128 --batch_size 64    
-python3.7 workload.py --model 'VGG11' --dataset 128 --batch_size 64    
-python3.7 workload.py --model 'VGG13' --dataset 128 --batch_size 64    
-python3.7 workload.py --model 'VGG16' --dataset 128 --batch_size 64    
+#python3.7 workload.py --model 'VGG11' --dataset 128 --batch_size 64    
+#python3.7 workload.py --model 'VGG13' --dataset 128 --batch_size 64    
+#python3.7 workload.py --model 'VGG16' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'VGG19' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'ResNetSmall' --dataset 128 --batch_size 64    
-python3.7 workload.py --model 'ResNet18' --dataset 128 --batch_size 64    
-python3.7 workload.py --model 'ResNet34' --dataset 128 --batch_size 64    
+#python3.7 workload.py --model 'ResNet18' --dataset 128 --batch_size 64    
+#python3.7 workload.py --model 'ResNet34' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'MNIST_CNN' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'CIFAR10_CNN' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'FLOWER_CNN' --dataset 128 --batch_size 64    
@@ -40,13 +40,13 @@ python3.7 workload.py --model 'ResNet50' --dataset 128 --batch_size 64
 
 python3.7 workload.py --model 'LeNet5' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'VGGSmall' --dataset 224 --batch_size 128    
-python3.7 workload.py --model 'VGG11' --dataset 224 --batch_size 128    
-python3.7 workload.py --model 'VGG13' --dataset 224 --batch_size 128    
-python3.7 workload.py --model 'VGG16' --dataset 224 --batch_size 128    
+#python3.7 workload.py --model 'VGG11' --dataset 224 --batch_size 128    
+#python3.7 workload.py --model 'VGG13' --dataset 224 --batch_size 128    
+#python3.7 workload.py --model 'VGG16' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'VGG19' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'ResNetSmall' --dataset 224 --batch_size 128    
-python3.7 workload.py --model 'ResNet18' --dataset 224 --batch_size 128    
-python3.7 workload.py --model 'ResNet34' --dataset 224 --batch_size 128    
+#python3.7 workload.py --model 'ResNet18' --dataset 224 --batch_size 128    
+#python3.7 workload.py --model 'ResNet34' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'MNIST_CNN' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'CIFAR10_CNN' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'FLOWER_CNN' --dataset 224 --batch_size 128    
