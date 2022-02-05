@@ -16,7 +16,7 @@ python3.7 workload.py --model 'InceptionResNetV2' --dataset 32 --batch_size 32
 python3.7 workload.py --model 'Xception' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'EfficientNetB0' --dataset 32 --batch_size 32    
 python3.7 workload.py --model 'MobileNetV2' --dataset 32 --batch_size 32    
-python3.7 workload.py --model 'ResNet50' --dataset 32--batch_size 32
+python3.7 workload.py --model 'ResNet50' --dataset 32 --batch_size 32
 
 python3.7 workload.py --model 'LeNet5' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'VGGSmall' --dataset 128 --batch_size 64    
@@ -36,7 +36,7 @@ python3.7 workload.py --model 'InceptionResNetV2' --dataset 128 --batch_size 64
 python3.7 workload.py --model 'Xception' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'EfficientNetB0' --dataset 128 --batch_size 64    
 python3.7 workload.py --model 'MobileNetV2' --dataset 128 --batch_size 64    
-python3.7 workload.py --model 'ResNet50' --dataset 128--batch_size 64
+python3.7 workload.py --model 'ResNet50' --dataset 128 --batch_size 64
 
 python3.7 workload.py --model 'LeNet5' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'VGGSmall' --dataset 224 --batch_size 128    
@@ -56,4 +56,4 @@ python3.7 workload.py --model 'InceptionResNetV2' --dataset 224 --batch_size 128
 python3.7 workload.py --model 'Xception' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'EfficientNetB0' --dataset 224 --batch_size 128    
 python3.7 workload.py --model 'MobileNetV2' --dataset 224 --batch_size 128    
-python3.7 workload.py --model 'ResNet50' --dataset 224--batch_size 128
+python3.7 workload.py --model 'ResNet50' --dataset 224 --batch_size 128
