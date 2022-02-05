@@ -9,6 +9,7 @@ tensorflow 2.7.0
 인스턴스 만들고 실행하는법
 
 - git clone https://github.com/hyoonseo159357/Hardware-Data2.git
+- cd Hardware-Data2
 - sudo bash ./settings.sh
 - sudo bash ./run_all.sh
 
