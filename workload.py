@@ -105,7 +105,7 @@ model.fit(x_train, y_train,
     callbacks = BatchTimeCallback())
 
 import pickle
-epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(dataset)+'_total_epoch'+str(epochs)+"_totaldata"+str(num_data)+'.csv'           
+epoch_ver_filename= './'+str(model_name)+'_batch_size'+str(batch_size)+'_datasize'+str(args.dataset)+'_total_epoch'+str(epochs)+"_totaldata"+str(num_data)+'.csv'           
 
 # save data
 with open(epoch_ver_filename,'wb') as fw:
