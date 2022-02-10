@@ -94,18 +94,16 @@
 # python3.7 workload.py --model 'ResNet50' --dataset 128 --batch_size 128
 
 
-
+MODEL = 'LeNet5 VGGSmall VGG19 ResNetSmall MNIST_CNN CIFAR10_CNN FLOWER_CNN AlexNet InceptionV3 InceptionResNetV2 Xception EfficientNetB0 MobileNetV2 ResNet50'
 for var1 in 32 64 128 224 256
   do
     for var2 in 128 256
     do
-      for var3 in 'MobileNetV2' 'EfficientNetB0'
+      for var3 in $MODEL
       do
         python3.7 workload.py --model $var3 --dataset $var1 --batch_size $var2
       done
-    
-    done
-  
+    done  
   done
   
       
