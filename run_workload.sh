@@ -99,5 +99,5 @@ for var in 32 64 128 224 256
     for var3 in 'ResNet50' 'MobileNetV2'
       do
         python3.7 workload.py --model $var1 --dataset $var2 --batch_size $var3
-
+      done
 
