@@ -94,10 +94,13 @@
 # python3.7 workload.py --model 'ResNet50' --dataset 128 --batch_size 128
 
 
-for var in 32 64 128 224 256
-  for var2 in 128 256
+ORDER1="32 64 128 224 256"
+ORDER1="32 64 128 224 256"
+for var in $ORDER1
+  for var2 in $ORDER1
     for var3 in 'ResNet50' 'MobileNetV2'
       do
         python3.7 workload.py --model $var1 --dataset $var2 --batch_size $var3
       done
-
+      
+      
