@@ -94,3 +94,10 @@ python3.7 workload.py --model 'MobileNetV2' --dataset 128 --batch_size 128
 python3.7 workload.py --model 'ResNet50' --dataset 128 --batch_size 128
 
 
+for var in 32 64 128 224 256
+  for var2 in 128 256
+    for var3 in 'ResNet50' 'MobileNetV2'
+      do
+        python3.7 workload.py --model $var1 --dataset $var2 --batch_size $var3
+
+
