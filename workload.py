@@ -80,7 +80,7 @@ model.compile(loss=tf.keras.losses.categorical_crossentropy,
 
 
 epoch_dict = {}
-class BatchTimeCallback(tf.keras.callbacks.Callback):
+class epochTimeCallback(tf.keras.callbacks.Callback):
 
     def on_epoch_begin(self, epoch, logs=None):
         print(epoch)
@@ -102,7 +102,7 @@ model.fit(x_train, y_train,
     epochs=epochs,
     verbose=1,
     validation_data=(x_test, y_test),
-    callbacks = BatchTimeCallback())
+    callbacks = epochTimeCallback())
 
 import pickle
 epoch_ver_filename= './'+str(model_name)+'_batchsize'+str(batch_size)+'_datasize'+str(args.dataset)+'_total_epoch'+str(epochs)+"_totaldata"+str(num_data)+'.csv'           
