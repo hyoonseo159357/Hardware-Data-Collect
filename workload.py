@@ -41,9 +41,9 @@ batch_size = args.batch_size
 prof_point = args.prof_point
 batch_num = math.ceil(num_data/batch_size)
 epochs = math.ceil(prof_point)
-prof_start = math.floor(batch_num * prof_point)
-prof_len = args.prof_len
-prof_range = '{}, {}'.format(prof_start, prof_start + prof_len)
+# prof_start = math.floor(batch_num * prof_point)
+# prof_len = args.prof_len
+# prof_range = '{}, {}'.format(prof_start, prof_start + prof_len)
 optimizer = 'SGD'
 
 ###################### Build Fake Dataset ######################
