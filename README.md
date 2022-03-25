@@ -6,6 +6,7 @@ tensorflow 2.7.0
 
 다깔고 ssh 접속되면
 - cd Hardware-Data2
-- sudo bash ./run_all.sh
+- sudo bash ./run_all.sh (gpu+cpu둘다수집)
+- sudo bash ./run_nvidiasmi.sh (gpu만수집)
 
 
