@@ -1,5 +1,6 @@
 cuda11.4
 tensorflow 2.7.0
+인스턴스실행(버지니아/Deep Learning AMI GPU CUDA 11.4.1 (Ubuntu 18.04) 20211204 AMI)
 
 - 로컬에서 파일 다운로드받고, 파일안에 pem 키넣고
 - sh startCLI.sh g4dn.xlarge
