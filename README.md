@@ -1,6 +1,6 @@
 nvidia-smi , dstat 을 수집함
 
-- aws configure 로 리전 맞
+- aws configure 로 리전 맞춰주고
 
 cuda11.4 /
 tensorflow 2.7.0 /
