@@ -8,7 +8,7 @@ python 3.7 /
 N.virginia / Deep Learning AMI GPU CUDA 11.4.1 (Ubuntu 18.04) 20211204 AMI)
 
 - 로컬에서 파일 다운로드받고, 파일안에 pem 키넣고
-- sh startCLI.sh g4dn.xlarge
+- sh startCLI_Oregon.sh g4dn.xlarge
 
 다깔고 ssh 접속되면
 - cd Hardware-Data-Collect
