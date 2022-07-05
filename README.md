@@ -11,6 +11,6 @@ N.virginia / Deep Learning AMI GPU CUDA 11.4.1 (Ubuntu 18.04) 20211204 AMI)
 - sh startCLI.sh g4dn.xlarge
 
 다깔고 ssh 접속되면
-- cd Hardware-Data2
-- sudo bash ./run_all.sh (gpu+cpu둘다수집)
-- sudo bash ./run_gpu.sh (gpu만수집)
+- cd Hardware-Data-Collect
+- sudo bash ./Run_gpucpu.sh (gpu+cpu둘다수집)
+- sudo bash ./Run_gpu.sh (gpu만수집)
