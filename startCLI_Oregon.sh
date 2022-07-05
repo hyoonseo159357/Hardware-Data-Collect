@@ -4,7 +4,7 @@ INSTANCE_TYPE=$1
 
 IMAGE_ID="ami-05f0a758b1c9909d1"
 AWS_KEY="ys-oregon2"
-SUBNET_ID="subnet-f791a893"
+SUBNET_ID="subnet-3deb2844"
 SG_ID="sg-0050bf02c2488921b"
 
 # Launch instance & get informations
