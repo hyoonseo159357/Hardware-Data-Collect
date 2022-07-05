@@ -10,4 +10,4 @@ sudo apt update
 
 sudo apt install dstat
 
-chmod +x run_all.sh
+chmod +x Run_gpucpu.sh
