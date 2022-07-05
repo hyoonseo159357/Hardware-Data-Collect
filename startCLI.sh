@@ -29,6 +29,7 @@ sleep 60
 echo 'start experiment'
 #ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data-Collect/&& sudo bash ./run_all.sh'
 ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 
+cd /home/ubuntu/Hardware-Data-Collect/&& sudo bash ./run_all.sh
 
 # # Get results
 # sleep 10
