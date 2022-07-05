@@ -1,1 +1,1 @@
-sudo dstat --output ~/Hardware-Data2/dstat-log.csv -cdnpmrt
+sudo dstat --output ~/Hardware-Data-Collect/dstat-log.csv -cdnpmrt
