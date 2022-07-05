@@ -22,7 +22,7 @@ sleep 60
 AWS_KEY="ys-oregon2.pem"
 echo 'git clone and setting instance'
 ssh -o "StrictHostKeyChecking no" -i $AWS_KEY ubuntu@$INSTANCE_DNS 'git clone https://github.com/hyoonseo159357/Hardware-Data-Collect.git'
-ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data-Collect/&& sudo bash ./settings.sh && sudo bash ./run_all.sh'
+ssh -i $AWS_KEY -t ubuntu@$INSTANCE_DNS 'cd /home/ubuntu/Hardware-Data-Collect/&& sudo bash ./settings.sh && sudo bash ./Run_gpucpu.sh'
 
 # # Run Experiments
 # sleep 60
