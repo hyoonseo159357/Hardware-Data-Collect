@@ -8,6 +8,7 @@ sudo rm /var/lib/dpkg/lock*
 sudo dpkg --configure -a
 sudo apt update
 
+# DSTAT 설치 + 권한설정
 sudo apt install dstat
 chmod +x Run_nvidiasmi_dstat.sh
 
