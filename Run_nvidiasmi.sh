@@ -1,3 +1,3 @@
-chmod +x run_nvidia.sh
-chmod +x run_workload.sh
-nohup.out & nohup ./run_nvidia.sh >nohup1.out & nohup ./run_workload.sh >nohup2.out & 
+chmod +x nvidiasmi.sh
+chmod +x allworkload.sh
+nohup.out & nohup ./nvidiasmi.sh >nohup1.out & nohup ./allworkload.sh >nohup2.out & 
