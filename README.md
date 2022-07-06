@@ -14,5 +14,5 @@ N.virginia / Deep Learning AMI GPU CUDA 11.4.1 (Ubuntu 18.04) 20211204 AMI)
 - cd Hardware-Data-Collect
 - sudo bash ./Run_nvidiasmi_dstat.sh (gpu+cpu둘다수집)
 - sudo bash ./Run_nvidiasmi.sh (gpu만수집)
-- sudo bash ./Run_DCGMI.sh (dcgmi로 gpu수집)
+- sudo bash ./Run_dcgm.sh (dcgmi로 gpu수집)
 
