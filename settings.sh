@@ -10,4 +10,5 @@ sudo apt update
 
 sudo apt install dstat
 
-chmod +x Run_gpucpu.sh
+chmod +x Run_nvidiasmi_dstat.sh
+
