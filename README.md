@@ -5,7 +5,7 @@ nvidia-smi , dstat 을 수집함
 cuda11.4 /
 tensorflow 2.7.0 /
 python 3.7 /
-N.virginia / Deep Learning AMI GPU CUDA 11.4.1 (Ubuntu 18.04) 20211204 AMI)
+Deep Learning AMI GPU CUDA 11.4.1 (Ubuntu 18.04) 20211204 AMI)
 
 - 로컬에서 파일 다운로드받고, 파일안에 pem 키넣고
 - sh startCLI_Oregon.sh g4dn.xlarge
