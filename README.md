@@ -16,3 +16,5 @@ Deep Learning AMI GPU CUDA 11.4.1 (Ubuntu 18.04) 20211204 AMI)
 - sudo bash ./Run_nvidiasmi.sh (gpu만수집)
 - sudo bash ./Run_dcgm.sh (dcgmi로 gpu수집)
 
+로컬로 다운로드
+- scp -i /Users/yoonseo/desktop/aws_pem/ys-oregon2.pem -r ubuntu@54.185.254.117:/home/ubuntu/Hardware-Data-Collect/ .
