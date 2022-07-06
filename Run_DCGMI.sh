@@ -1,2 +1,2 @@
-chmod +x run_workload.sh
-nohup ./run_workload.sh >nohup.out & 
+chmod +x allworkload.sh
+nohup ./allworkload.sh >nohup.out & 
