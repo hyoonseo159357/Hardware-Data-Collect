@@ -1,4 +1,4 @@
-nvidia-smi , dstat 을 수집함
+nvidia-smi , dstat 을 수집함 / dcgmi 는 전체 피처 다 뽑은다음 솎아내기용으로 사용
 
 - aws configure 로 리전 맞춰주고
 
